@@ -1,0 +1,6 @@
+add_subdirectory(bdc)
+add_subdirectory(dec)
+add_subdirectory(kit)
+add_subdirectory(lucky)
+add_subdirectory(rsb)
+add_subdirectory(rpo)

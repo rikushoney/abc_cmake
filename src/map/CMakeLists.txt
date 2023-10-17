@@ -1,0 +1,8 @@
+add_subdirectory(mapper)
+add_subdirectory(mio)
+add_subdirectory(super)
+add_subdirectory(if)
+add_subdirectory(amap)
+add_subdirectory(cov)
+add_subdirectory(scl)
+add_subdirectory(mpm)

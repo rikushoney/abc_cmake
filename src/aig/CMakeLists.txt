@@ -1,0 +1,6 @@
+add_subdirectory(aig)
+add_subdirectory(saig)
+add_subdirectory(gia)
+add_subdirectory(ioa)
+add_subdirectory(ivy)
+add_subdirectory(hop)
