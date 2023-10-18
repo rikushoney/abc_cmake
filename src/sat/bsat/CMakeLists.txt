@@ -1,17 +1,17 @@
 target_sources(abc
   PRIVATE
-  src/sat/bsat/satMem.c
-  src/sat/bsat/satInter.c
-  src/sat/bsat/satInterA.c
-  src/sat/bsat/satInterB.c
-  src/sat/bsat/satInterP.c
-  src/sat/bsat/satProof.c
-  src/sat/bsat/satSolver.c
-  src/sat/bsat/satSolver2.c
-  src/sat/bsat/satSolver2i.c
-  src/sat/bsat/satSolver3.c
-  src/sat/bsat/satStore.c
-  src/sat/bsat/satTrace.c
-  src/sat/bsat/satTruth.c
-  src/sat/bsat/satUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satMem.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satInter.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satInterA.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satInterB.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satInterP.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satProof.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satSolver.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satSolver2.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satSolver2i.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satSolver3.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satStore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satTrace.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satTruth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/satUtil.c
 )

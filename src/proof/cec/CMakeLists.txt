@@ -1,23 +1,23 @@
 target_sources(abc
   PRIVATE
-  src/proof/cec/cecCec.c
-  src/proof/cec/cecChoice.c
-  src/proof/cec/cecClass.c
-  src/proof/cec/cecCore.c
-  src/proof/cec/cecCorr.c
-  src/proof/cec/cecIso.c
-  src/proof/cec/cecMan.c
-  src/proof/cec/cecPat.c
-  src/proof/cec/cecProve.c
-  src/proof/cec/cecSat.c
-  src/proof/cec/cecSatG.c
-  src/proof/cec/cecSatG2.c
-  src/proof/cec/cecSatG3.c
-  src/proof/cec/cecSeq.c
-  src/proof/cec/cecSim.c
-  src/proof/cec/cecSolve.c
-  src/proof/cec/cecSolveG.c
-  src/proof/cec/cecSplit.c
-  src/proof/cec/cecSynth.c
-  src/proof/cec/cecSweep.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecCec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecChoice.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecClass.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecCorr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecIso.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecPat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecProve.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSatG.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSatG2.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSatG3.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSeq.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSolve.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSolveG.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSplit.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSynth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cecSweep.c
 )

@@ -1,16 +1,16 @@
 target_sources(abc
   PRIVATE
-  src/base/wln/wln.c
-  src/base/wln/wlnBlast.c
-  src/base/wln/wlnCom.c
-  src/base/wln/wlnGuide.c
-  src/base/wln/wlnMem.c
-  src/base/wln/wlnNdr.c
-  src/base/wln/wlnNtk.c
-  src/base/wln/wlnObj.c
-  src/base/wln/wlnRead.c
-  src/base/wln/wlnRetime.c
-  src/base/wln/wlnRtl.c
-  src/base/wln/wlnWlc.c
-  src/base/wln/wlnWriteVer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wln.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnBlast.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnCom.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnGuide.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnMem.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnNdr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnNtk.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnObj.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnRead.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnRetime.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnRtl.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnWlc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlnWriteVer.c
 )

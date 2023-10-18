@@ -1,6 +1,6 @@
 target_sources(abc
   PRIVATE
-  src/sat/xsat/xsatSolver.c
-  src/sat/xsat/xsatSolverAPI.c
-  src/sat/xsat/xsatCnfReader.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/xsatSolver.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/xsatSolverAPI.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/xsatCnfReader.c
 )

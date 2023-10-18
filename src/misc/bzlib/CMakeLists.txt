@@ -1,10 +1,10 @@
 target_sources(abc
   PRIVATE
-  src/misc/bzlib/blocksort.c
-  src/misc/bzlib/bzlib.c
-  src/misc/bzlib/compress.c
-  src/misc/bzlib/crctable.c
-  src/misc/bzlib/decompress.c
-  src/misc/bzlib/huffman.c
-  src/misc/bzlib/randtable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/blocksort.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bzlib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/compress.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/crctable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/decompress.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/huffman.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/randtable.c
 )

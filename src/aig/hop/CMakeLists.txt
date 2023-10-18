@@ -1,13 +1,13 @@
 target_sources(abc
   PRIVATE
-  src/aig/hop/hopBalance.c
-  src/aig/hop/hopCheck.c
-  src/aig/hop/hopDfs.c
-  src/aig/hop/hopMan.c
-  src/aig/hop/hopMem.c
-  src/aig/hop/hopObj.c
-  src/aig/hop/hopOper.c
-  src/aig/hop/hopTable.c
-  src/aig/hop/hopTruth.c
-  src/aig/hop/hopUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopBalance.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopCheck.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopDfs.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopMem.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopObj.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopOper.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopTable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopTruth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/hopUtil.c
 )

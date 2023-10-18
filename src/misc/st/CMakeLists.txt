@@ -1,5 +1,5 @@
 target_sources(abc
   PRIVATE
-  src/misc/st/st.c
-  src/misc/st/stmm.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/st.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/stmm.c
 )

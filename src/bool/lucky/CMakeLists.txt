@@ -1,10 +1,10 @@
 target_sources(abc
   PRIVATE
-  src/bool/lucky/lucky.c
-  src/bool/lucky/luckyFast16.c
-  src/bool/lucky/luckyFast6.c
-  src/bool/lucky/luckyRead.c
-  src/bool/lucky/luckySimple.c
-  src/bool/lucky/luckySwapIJ.c
-  src/bool/lucky/luckySwap.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lucky.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/luckyFast16.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/luckyFast6.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/luckyRead.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/luckySimple.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/luckySwapIJ.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/luckySwap.c
 )

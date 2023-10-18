@@ -1,10 +1,10 @@
 target_sources(abc
   PRIVATE
-  src/base/pla/plaCom.c
-  src/base/pla/plaHash.c
-  src/base/pla/plaMan.c
-  src/base/pla/plaMerge.c
-  src/base/pla/plaSimple.c
-  src/base/pla/plaRead.c
-  src/base/pla/plaWrite.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/plaCom.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/plaHash.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/plaMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/plaMerge.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/plaSimple.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/plaRead.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/plaWrite.c
 )

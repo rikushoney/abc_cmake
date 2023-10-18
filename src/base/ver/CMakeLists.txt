@@ -1,7 +1,7 @@
 target_sources(abc
   PRIVATE
-  src/base/ver/verCore.c
-  src/base/ver/verFormula.c
-  src/base/ver/verParse.c
-  src/base/ver/verStream.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/verCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/verFormula.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/verParse.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/verStream.c
 )

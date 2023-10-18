@@ -1,22 +1,22 @@
 target_sources(abc
   PRIVATE
-  src/base/wlc/wlcAbs.c
-  src/base/wlc/wlcAbs2.c
-  src/base/wlc/wlcAbc.c
-  src/base/wlc/wlcPth.c
-  src/base/wlc/wlcBlast.c
-  src/base/wlc/wlcCom.c
-  src/base/wlc/wlcGraft.c
-  src/base/wlc/wlcJson.c
-  src/base/wlc/wlcMem.c
-  src/base/wlc/wlcNdr.c
-  src/base/wlc/wlcNtk.c
-  src/base/wlc/wlcReadSmt.c
-  src/base/wlc/wlcReadVer.c
-  src/base/wlc/wlcSim.c
-  src/base/wlc/wlcShow.c
-  src/base/wlc/wlcStdin.c
-  src/base/wlc/wlcUif.c
-  src/base/wlc/wlcWin.c
-  src/base/wlc/wlcWriteVer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcAbs.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcAbs2.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcAbc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcPth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcBlast.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcCom.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcGraft.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcJson.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcMem.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcNdr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcNtk.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcReadSmt.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcReadVer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcShow.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcStdin.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcUif.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcWin.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/wlcWriteVer.c
 )

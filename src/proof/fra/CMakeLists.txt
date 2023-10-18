@@ -1,20 +1,20 @@
 target_sources(abc
   PRIVATE
-  src/proof/fra/fraBmc.c
-  src/proof/fra/fraCec.c
-  src/proof/fra/fraClass.c
-  src/proof/fra/fraClau.c
-  src/proof/fra/fraClaus.c
-  src/proof/fra/fraCnf.c
-  src/proof/fra/fraCore.c
-  src/proof/fra/fraHot.c
-  src/proof/fra/fraImp.c
-  src/proof/fra/fraInd.c
-  src/proof/fra/fraIndVer.c
-  src/proof/fra/fraLcr.c
-  src/proof/fra/fraMan.c
-  src/proof/fra/fraPart.c
-  src/proof/fra/fraSat.c
-  src/proof/fra/fraSec.c
-  src/proof/fra/fraSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraBmc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraCec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraClass.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraClau.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraClaus.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraCnf.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraHot.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraImp.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraInd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraIndVer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraLcr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraPart.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraSec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraSim.c
 )

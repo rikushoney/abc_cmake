@@ -1,5 +1,5 @@
 target_sources(abc
   PRIVATE
-  src/misc/nm/nmApi.c
-  src/misc/nm/nmTable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nmApi.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nmTable.c
 )

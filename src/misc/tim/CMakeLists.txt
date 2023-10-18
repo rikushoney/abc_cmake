@@ -1,8 +1,8 @@
 target_sources(abc
   PRIVATE
-  src/misc/tim/timBox.c
-  src/misc/tim/timDump.c
-  src/misc/tim/timMan.c
-  src/misc/tim/timTime.c
-  src/misc/tim/timTrav.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/timBox.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/timDump.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/timMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/timTime.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/timTrav.c
 )

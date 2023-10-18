@@ -1,8 +1,8 @@
 target_sources(abc
   PRIVATE
-  src/opt/cgt/cgtAig.c
-  src/opt/cgt/cgtCore.c
-  src/opt/cgt/cgtDecide.c
-  src/opt/cgt/cgtMan.c
-  src/opt/cgt/cgtSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cgtAig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cgtCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cgtDecide.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cgtMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cgtSat.c
 )

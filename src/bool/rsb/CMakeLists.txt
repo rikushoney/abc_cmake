@@ -1,5 +1,5 @@
 target_sources(abc
   PRIVATE
-  src/bool/rsb/rsbDec6.c
-  src/bool/rsb/rsbMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/rsbDec6.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/rsbMan.c
 )

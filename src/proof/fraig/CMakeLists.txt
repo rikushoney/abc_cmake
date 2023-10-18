@@ -1,15 +1,15 @@
 target_sources(abc
   PRIVATE
-  src/proof/fraig/fraigApi.c
-  src/proof/fraig/fraigCanon.c
-  src/proof/fraig/fraigFanout.c
-  src/proof/fraig/fraigFeed.c
-  src/proof/fraig/fraigMan.c
-  src/proof/fraig/fraigMem.c
-  src/proof/fraig/fraigNode.c
-  src/proof/fraig/fraigPrime.c
-  src/proof/fraig/fraigSat.c
-  src/proof/fraig/fraigTable.c
-  src/proof/fraig/fraigUtil.c
-  src/proof/fraig/fraigVec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigApi.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigCanon.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigFanout.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigFeed.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigMem.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigNode.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigPrime.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigTable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fraigVec.c
 )

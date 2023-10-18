@@ -1,4 +1,4 @@
 target_sources(abc
   PRIVATE
-  src/misc/bbl/bblif.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bblif.c
 )

@@ -1,12 +1,12 @@
 target_sources(abc
   PRIVATE
-  src/sat/cnf/cnfCore.c
-  src/sat/cnf/cnfCut.c
-  src/sat/cnf/cnfData.c
-  src/sat/cnf/cnfFast.c
-  src/sat/cnf/cnfMan.c
-  src/sat/cnf/cnfMap.c
-  src/sat/cnf/cnfPost.c
-  src/sat/cnf/cnfUtil.c
-  src/sat/cnf/cnfWrite.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfCut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfData.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfFast.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfMap.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfPost.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnfWrite.c
 )

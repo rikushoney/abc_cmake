@@ -1,14 +1,14 @@
 target_sources(abc
   PRIVATE
-  src/map/scl/scl.c
-  src/map/scl/sclBuffer.c
-  src/map/scl/sclBufSize.c
-  src/map/scl/sclDnsize.c
-  src/map/scl/sclLiberty.c
-  src/map/scl/sclLibScl.c
-  src/map/scl/sclLibUtil.c
-  src/map/scl/sclLoad.c
-  src/map/scl/sclSize.c
-  src/map/scl/sclUpsize.c
-  src/map/scl/sclUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/scl.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclBuffer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclBufSize.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclDnsize.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclLiberty.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclLibScl.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclLibUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclLoad.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclSize.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclUpsize.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sclUtil.c
 )

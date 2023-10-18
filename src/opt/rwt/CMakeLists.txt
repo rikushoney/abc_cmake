@@ -1,6 +1,6 @@
 target_sources(abc
   PRIVATE
-  src/opt/rwt/rwtDec.c
-  src/opt/rwt/rwtMan.c
-  src/opt/rwt/rwtUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/rwtDec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/rwtMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/rwtUtil.c
 )

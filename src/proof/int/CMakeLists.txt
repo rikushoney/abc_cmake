@@ -1,13 +1,13 @@
 target_sources(abc
   PRIVATE
-  src/proof/int/intCheck.c
-  src/proof/int/intContain.c
-  src/proof/int/intCore.c
-  src/proof/int/intCtrex.c
-  src/proof/int/intDup.c
-  src/proof/int/intFrames.c
-  src/proof/int/intInter.c
-  src/proof/int/intM114.c
-  src/proof/int/intMan.c
-  src/proof/int/intUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intCheck.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intContain.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intCtrex.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intDup.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intFrames.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intInter.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intM114.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/intUtil.c
 )

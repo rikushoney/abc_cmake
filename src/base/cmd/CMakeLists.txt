@@ -1,13 +1,13 @@
 target_sources(abc
   PRIVATE
-  src/base/cmd/cmd.c
-  src/base/cmd/cmdAlias.c
-  src/base/cmd/cmdApi.c
-  src/base/cmd/cmdAuto.c
-  src/base/cmd/cmdFlag.c
-  src/base/cmd/cmdHist.c
-  src/base/cmd/cmdLoad.c
-  src/base/cmd/cmdPlugin.c
-  src/base/cmd/cmdStarter.c
-  src/base/cmd/cmdUtils.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdAlias.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdApi.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdAuto.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdFlag.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdHist.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdLoad.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdPlugin.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdStarter.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cmdUtils.c
 )

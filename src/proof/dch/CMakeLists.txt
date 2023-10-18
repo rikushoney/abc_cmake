@@ -1,13 +1,13 @@
 target_sources(abc
   PRIVATE
-  src/proof/dch/dchAig.c
-  src/proof/dch/dchChoice.c
-  src/proof/dch/dchClass.c
-  src/proof/dch/dchCnf.c
-  src/proof/dch/dchCore.c
-  src/proof/dch/dchMan.c
-  src/proof/dch/dchSat.c
-  src/proof/dch/dchSim.c
-  src/proof/dch/dchSimSat.c
-  src/proof/dch/dchSweep.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchAig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchChoice.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchClass.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchCnf.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchSimSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dchSweep.c
 )

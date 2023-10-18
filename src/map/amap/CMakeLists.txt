@@ -1,16 +1,16 @@
 target_sources(abc
   PRIVATE
-  src/map/amap/amapCore.c
-  src/map/amap/amapGraph.c
-  src/map/amap/amapLib.c
-  src/map/amap/amapLiberty.c
-  src/map/amap/amapMan.c
-  src/map/amap/amapMatch.c
-  src/map/amap/amapMerge.c
-  src/map/amap/amapOutput.c
-  src/map/amap/amapParse.c
-  src/map/amap/amapPerm.c
-  src/map/amap/amapRead.c
-  src/map/amap/amapRule.c
-  src/map/amap/amapUniq.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapGraph.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapLib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapLiberty.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapMatch.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapMerge.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapOutput.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapParse.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapPerm.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapRead.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapRule.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/amapUniq.c
 )

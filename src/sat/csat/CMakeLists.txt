@@ -1,4 +1,4 @@
 target_sources(abc
   PRIVATE
-  src/sat/csat/csat_apis.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/csat_apis.c
 )

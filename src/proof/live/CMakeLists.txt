@@ -1,12 +1,12 @@
 target_sources(abc
   PRIVATE
-  src/proof/live/liveness.c
-  src/proof/live/liveness_sim.c
-  src/proof/live/ltl_parser.c
-  src/proof/live/kliveness.c
-  src/proof/live/monotone.c
-  src/proof/live/disjunctiveMonotone.c
-  src/proof/live/arenaViolation.c
-  src/proof/live/kLiveConstraints.c
-  src/proof/live/combination.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/liveness.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/liveness_sim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/ltl_parser.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kliveness.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/monotone.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/disjunctiveMonotone.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/arenaViolation.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kLiveConstraints.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/combination.c
 )

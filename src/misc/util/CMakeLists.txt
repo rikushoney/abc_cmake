@@ -1,11 +1,11 @@
 target_sources(abc
   PRIVATE
-  src/misc/util/utilBridge.c
-  src/misc/util/utilCex.c
-  src/misc/util/utilColor.c
-  src/misc/util/utilFile.c
-  src/misc/util/utilIsop.c
-  src/misc/util/utilNam.c
-  src/misc/util/utilSignal.c
-  src/misc/util/utilSort.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilBridge.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilCex.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilColor.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilFile.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilIsop.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilNam.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilSignal.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/utilSort.c
 )

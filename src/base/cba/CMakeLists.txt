@@ -1,11 +1,11 @@
 target_sources(abc
   PRIVATE
-  src/base/cba/cbaBlast.c
-  src/base/cba/cbaCba.c
-  src/base/cba/cbaCom.c
-  src/base/cba/cbaNtk.c
-  src/base/cba/cbaReadBlif.c
-  src/base/cba/cbaReadVer.c
-  src/base/cba/cbaWriteBlif.c
-  src/base/cba/cbaWriteVer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cbaBlast.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cbaCba.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cbaCom.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cbaNtk.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cbaReadBlif.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cbaReadVer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cbaWriteBlif.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cbaWriteVer.c
 )

@@ -1,10 +1,10 @@
 target_sources(abc
   PRIVATE
-  src/opt/ret/retArea.c
-  src/opt/ret/retCore.c
-  src/opt/ret/retDelay.c
-  src/opt/ret/retFlow.c
-  src/opt/ret/retIncrem.c
-  src/opt/ret/retInit.c
-  src/opt/ret/retLvalue.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/retArea.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/retCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/retDelay.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/retFlow.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/retIncrem.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/retInit.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/retLvalue.c
 )

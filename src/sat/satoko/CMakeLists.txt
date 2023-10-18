@@ -1,6 +1,6 @@
 target_sources(abc
   PRIVATE
-  src/sat/satoko/solver.c
-  src/sat/satoko/solver_api.c
-  src/sat/satoko/cnf_reader.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/solver.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/solver_api.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cnf_reader.c
 )

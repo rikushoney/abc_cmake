@@ -1,20 +1,20 @@
 target_sources(abc
   PRIVATE
-  src/map/mapper/mapper.c
-  src/map/mapper/mapperCanon.c
-  src/map/mapper/mapperCore.c
-  src/map/mapper/mapperCreate.c
-  src/map/mapper/mapperCut.c
-  src/map/mapper/mapperCutUtils.c
-  src/map/mapper/mapperLib.c
-  src/map/mapper/mapperMatch.c
-  src/map/mapper/mapperRefs.c
-  src/map/mapper/mapperSuper.c
-  src/map/mapper/mapperSwitch.c
-  src/map/mapper/mapperTable.c
-  src/map/mapper/mapperTime.c
-  src/map/mapper/mapperTree.c
-  src/map/mapper/mapperTruth.c
-  src/map/mapper/mapperUtils.c
-  src/map/mapper/mapperVec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapper.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperCanon.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperCreate.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperCut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperCutUtils.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperLib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperMatch.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperRefs.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperSuper.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperSwitch.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperTable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperTime.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperTree.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperTruth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperUtils.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mapperVec.c
 )

@@ -1,7 +1,7 @@
 target_sources(abc
   PRIVATE
-  src/opt/csw/cswCore.c
-  src/opt/csw/cswCut.c
-  src/opt/csw/cswMan.c
-  src/opt/csw/cswTable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cswCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cswCut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cswMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cswTable.c
 )

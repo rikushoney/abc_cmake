@@ -1,14 +1,14 @@
 target_sources(abc
   PRIVATE
-  src/map/mpm/mpmAbc.c
-  src/map/mpm/mpmCore.c
-  src/map/mpm/mpmDsd.c
-  src/map/mpm/mpmGates.c
-  src/map/mpm/mpmLib.c
-  src/map/mpm/mpmMan.c
-  src/map/mpm/mpmMap.c
-  src/map/mpm/mpmMig.c
-  src/map/mpm/mpmPre.c
-  src/map/mpm/mpmTruth.c
-  src/map/mpm/mpmUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmAbc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmDsd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmGates.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmLib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmMap.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmMig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmPre.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmTruth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mpmUtil.c
 )

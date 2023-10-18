@@ -1,11 +1,11 @@
 target_sources(abc
   PRIVATE
-  src/opt/mfs/mfsCore.c
-  src/opt/mfs/mfsDiv.c
-  src/opt/mfs/mfsInter.c
-  src/opt/mfs/mfsMan.c
-  src/opt/mfs/mfsResub.c
-  src/opt/mfs/mfsSat.c
-  src/opt/mfs/mfsStrash.c
-  src/opt/mfs/mfsWin.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mfsCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mfsDiv.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mfsInter.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mfsMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mfsResub.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mfsSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mfsStrash.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mfsWin.c
 )

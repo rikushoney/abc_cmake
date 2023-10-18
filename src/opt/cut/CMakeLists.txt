@@ -1,12 +1,12 @@
 target_sources(abc
   PRIVATE
-  src/opt/cut/cutApi.c
-  src/opt/cut/cutCut.c
-  src/opt/cut/cutMan.c
-  src/opt/cut/cutMerge.c
-  src/opt/cut/cutNode.c
-  src/opt/cut/cutOracle.c
-  src/opt/cut/cutPre22.c
-  src/opt/cut/cutSeq.c
-  src/opt/cut/cutTruth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutApi.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutCut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutMerge.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutNode.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutOracle.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutPre22.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutSeq.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cutTruth.c
 )

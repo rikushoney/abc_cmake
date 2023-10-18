@@ -1,12 +1,12 @@
 target_sources(abc
   PRIVATE
-  src/opt/sbd/sbd.c
-  src/opt/sbd/sbdCnf.c
-  src/opt/sbd/sbdCore.c
-  src/opt/sbd/sbdCut.c
-  src/opt/sbd/sbdCut2.c
-  src/opt/sbd/sbdLut.c
-  src/opt/sbd/sbdPath.c
-  src/opt/sbd/sbdSat.c
-  src/opt/sbd/sbdWin.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbdCnf.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbdCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbdCut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbdCut2.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbdLut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbdPath.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbdSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sbdWin.c
 )

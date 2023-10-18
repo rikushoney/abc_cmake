@@ -1,6 +1,6 @@
 target_sources(abc
   PRIVATE
-  src/map/super/super.c
-  src/map/super/superAnd.c
-  src/map/super/superGate.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/super.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/superAnd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/superGate.c
 )

@@ -1,15 +1,15 @@
 target_sources(abc
   PRIVATE
-  src/opt/dau/dauCanon.c
-  src/opt/dau/dauCore.c
-  src/opt/dau/dauCount.c
-  src/opt/dau/dauDivs.c
-  src/opt/dau/dauDsd.c
-  src/opt/dau/dauEnum.c
-  src/opt/dau/dauGia.c
-  src/opt/dau/dauMerge.c
-  src/opt/dau/dauNonDsd.c
-  src/opt/dau/dauNpn.c
-  src/opt/dau/dauNpn2.c
-  src/opt/dau/dauTree.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauCanon.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauCount.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauDivs.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauDsd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauEnum.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauGia.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauMerge.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauNonDsd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauNpn.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauNpn2.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dauTree.c
 )

@@ -1,23 +1,23 @@
 target_sources(abc
   PRIVATE
-  src/proof/ssw/sswAig.c
-  src/proof/ssw/sswBmc.c
-  src/proof/ssw/sswClass.c
-  src/proof/ssw/sswCnf.c
-  src/proof/ssw/sswConstr.c
-  src/proof/ssw/sswCore.c
-  src/proof/ssw/sswDyn.c
-  src/proof/ssw/sswFilter.c
-  src/proof/ssw/sswIslands.c
-  src/proof/ssw/sswLcorr.c
-  src/proof/ssw/sswMan.c
-  src/proof/ssw/sswPart.c
-  src/proof/ssw/sswPairs.c
-  src/proof/ssw/sswRarity.c
-  src/proof/ssw/sswSat.c
-  src/proof/ssw/sswSemi.c
-  src/proof/ssw/sswSim.c
-  src/proof/ssw/sswSimSat.c
-  src/proof/ssw/sswSweep.c
-  src/proof/ssw/sswUnique.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswAig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswBmc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswClass.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswCnf.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswConstr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswDyn.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswFilter.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswIslands.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswLcorr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswPart.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswPairs.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswRarity.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswSemi.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswSimSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswSweep.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sswUnique.c
 )

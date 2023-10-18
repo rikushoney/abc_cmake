@@ -1,8 +1,8 @@
 target_sources(abc
   PRIVATE
-  src/bool/dec/decAbc.c
-  src/bool/dec/decFactor.c
-  src/bool/dec/decMan.c
-  src/bool/dec/decPrint.c
-  src/bool/dec/decUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/decAbc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/decFactor.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/decMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/decPrint.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/decUtil.c
 )

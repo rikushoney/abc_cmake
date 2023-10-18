@@ -1,22 +1,22 @@
 target_sources(abc
   PRIVATE
-  src/proof/acec/acecCl.c
-  src/proof/acec/acecCore.c
-  src/proof/acec/acecCo.c
-  src/proof/acec/acecBo.c
-  src/proof/acec/acecRe.c
-  src/proof/acec/acecPa.c
-  src/proof/acec/acecPo.c
-  src/proof/acec/acecPool.c
-  src/proof/acec/acecCover.c
-  src/proof/acec/acecFadds.c
-  src/proof/acec/acecMult.c
-  src/proof/acec/acecNorm.c
-  src/proof/acec/acecOrder.c
-  src/proof/acec/acecPolyn.c
-  src/proof/acec/acecSt.c
-  src/proof/acec/acecTree.c
-  src/proof/acec/acecUtil.c
-  src/proof/acec/acec2Mult.c
-  src/proof/acec/acecXor.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecCl.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecCo.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecBo.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecRe.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecPa.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecPo.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecPool.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecCover.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecFadds.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecMult.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecNorm.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecOrder.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecPolyn.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecSt.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecTree.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acec2Mult.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acecXor.c
 )

@@ -1,10 +1,10 @@
 target_sources(abc
   PRIVATE
-  src/base/main/main.c
-  src/base/main/mainFrame.c
-  src/base/main/mainInit.c
-  src/base/main/mainLib.c
-  src/base/main/mainReal.c
-  src/base/main/libSupport.c
-  src/base/main/mainUtils.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/main.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mainFrame.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mainInit.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mainLib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mainReal.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/libSupport.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mainUtils.c
 )

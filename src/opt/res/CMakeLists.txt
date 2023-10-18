@@ -1,10 +1,10 @@
 target_sources(abc
   PRIVATE
-  src/opt/res/resCore.c
-  src/opt/res/resDivs.c
-  src/opt/res/resFilter.c
-  src/opt/res/resSat.c
-  src/opt/res/resSim.c
-  src/opt/res/resStrash.c
-  src/opt/res/resWin.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/resCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/resDivs.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/resFilter.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/resSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/resSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/resStrash.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/resWin.c
 )

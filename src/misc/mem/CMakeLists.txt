@@ -1,4 +1,4 @@
 target_sources(abc
   PRIVATE
-  src/misc/mem/mem.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mem.c
 )

@@ -1,14 +1,15 @@
 target_sources(abc
   PRIVATE
-  src/bool/kit/kitAig.c
-  src/bool/kit/kitBdd.c
-  src/bool/kit/kitCloud.c src/bool/kit/cloud.c
-  src/bool/kit/kitDsd.c
-  src/bool/kit/kitFactor.c
-  src/bool/kit/kitGraph.c
-  src/bool/kit/kitHop.c
-  src/bool/kit/kitIsop.c
-  src/bool/kit/kitPla.c
-  src/bool/kit/kitSop.c
-  src/bool/kit/kitTruth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitAig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitBdd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitCloud.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/cloud.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitDsd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitFactor.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitGraph.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitHop.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitIsop.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitPla.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitSop.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/kitTruth.c
 )

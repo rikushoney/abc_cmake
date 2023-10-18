@@ -1,13 +1,13 @@
 target_sources(abc
   PRIVATE
-  src/proof/pdr/pdrCnf.c
-  src/proof/pdr/pdrCore.c
-  src/proof/pdr/pdrIncr.c
-  src/proof/pdr/pdrInv.c
-  src/proof/pdr/pdrMan.c
-  src/proof/pdr/pdrSat.c
-  src/proof/pdr/pdrTsim.c
-  src/proof/pdr/pdrTsim2.c
-  src/proof/pdr/pdrTsim3.c
-  src/proof/pdr/pdrUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrCnf.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrIncr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrInv.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrTsim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrTsim2.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrTsim3.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/pdrUtil.c
 )

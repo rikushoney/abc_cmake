@@ -1,12 +1,12 @@
 target_sources(abc
   PRIVATE
-  src/base/acb/acbAbc.c
-  src/base/acb/acbAig.c
-  src/base/acb/acbCom.c
-  src/base/acb/acbFunc.c
-  src/base/acb/acbMfs.c
-  src/base/acb/acbPush.c
-  src/base/acb/acbSets.c
-  src/base/acb/acbTest.c
-  src/base/acb/acbUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbAbc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbAig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbCom.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbFunc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbMfs.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbPush.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbSets.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbTest.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/acbUtil.c
 )

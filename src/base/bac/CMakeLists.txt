@@ -1,18 +1,18 @@
 target_sources(abc
   PRIVATE
-  src/base/bac/bacBlast.c
-  src/base/bac/bacBac.c
-  src/base/bac/bacCom.c
-  src/base/bac/bacLib.c
-  src/base/bac/bacNtk.c
-  src/base/bac/bacPrsBuild.c
-  src/base/bac/bacPrsTrans.c
-  src/base/bac/bacPtr.c
-  src/base/bac/bacPtrAbc.c
-  src/base/bac/bacReadBlif.c
-  src/base/bac/bacReadSmt.c
-  src/base/bac/bacReadVer.c
-  src/base/bac/bacWriteBlif.c
-  src/base/bac/bacWriteSmt.c
-  src/base/bac/bacWriteVer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacBlast.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacBac.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacCom.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacLib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacNtk.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacPrsBuild.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacPrsTrans.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacPtr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacPtrAbc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacReadBlif.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacReadSmt.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacReadVer.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacWriteBlif.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacWriteSmt.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bacWriteVer.c
 )

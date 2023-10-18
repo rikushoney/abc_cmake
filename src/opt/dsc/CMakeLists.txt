@@ -1,4 +1,4 @@
 target_sources(abc
   PRIVATE
-  src/opt/dsc/dsc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/dsc.c
 )

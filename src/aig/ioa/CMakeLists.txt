@@ -1,6 +1,6 @@
 target_sources(abc
   PRIVATE
-  src/aig/ioa/ioaReadAig.c
-  src/aig/ioa/ioaWriteAig.c
-  src/aig/ioa/ioaUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/ioaReadAig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/ioaWriteAig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/ioaUtil.c
 )

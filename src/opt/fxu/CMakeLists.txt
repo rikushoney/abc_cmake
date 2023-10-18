@@ -1,15 +1,15 @@
 target_sources(abc
   PRIVATE
-  src/opt/fxu/fxu.c
-  src/opt/fxu/fxuCreate.c
-  src/opt/fxu/fxuHeapD.c
-  src/opt/fxu/fxuHeapS.c
-  src/opt/fxu/fxuList.c
-  src/opt/fxu/fxuMatrix.c
-  src/opt/fxu/fxuPair.c
-  src/opt/fxu/fxuPrint.c
-  src/opt/fxu/fxuReduce.c
-  src/opt/fxu/fxuSelect.c
-  src/opt/fxu/fxuSingle.c
-  src/opt/fxu/fxuUpdate.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxu.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuCreate.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuHeapD.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuHeapS.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuList.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuMatrix.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuPair.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuPrint.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuReduce.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuSelect.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuSingle.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fxuUpdate.c
 )

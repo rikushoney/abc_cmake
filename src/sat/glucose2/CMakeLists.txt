@@ -1,9 +1,9 @@
 target_sources(abc
   PRIVATE
-  src/sat/glucose2/AbcGlucose2.cpp
-  src/sat/glucose2/AbcGlucoseCmd2.cpp
-  src/sat/glucose2/Glucose2.cpp
-  src/sat/glucose2/Options2.cpp
-  src/sat/glucose2/SimpSolver2.cpp
-  src/sat/glucose2/System2.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/AbcGlucose2.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/AbcGlucoseCmd2.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Glucose2.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/Options2.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/SimpSolver2.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/System2.cpp
 )

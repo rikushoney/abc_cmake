@@ -1,10 +1,10 @@
 target_sources(abc
   PRIVATE
-  src/map/cov/covBuild.c
-  src/map/cov/covCore.c
-  src/map/cov/covMan.c
-  src/map/cov/covMinEsop.c
-  src/map/cov/covMinMan.c
-  src/map/cov/covMinSop.c
-  src/map/cov/covMinUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/covBuild.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/covCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/covMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/covMinEsop.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/covMinMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/covMinSop.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/covMinUtil.c
 )

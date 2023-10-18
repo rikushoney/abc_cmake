@@ -1,10 +1,10 @@
 target_sources(abc
   PRIVATE
-  src/map/mio/mio.c
-  src/map/mio/mioApi.c
-  src/map/mio/mioFunc.c
-  src/map/mio/mioParse.c
-  src/map/mio/mioRead.c
-  src/map/mio/mioSop.c
-  src/map/mio/mioUtils.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mio.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mioApi.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mioFunc.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mioParse.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mioRead.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mioSop.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/mioUtils.c
 )

@@ -1,14 +1,14 @@
 target_sources(abc
   PRIVATE
-  src/opt/lpk/lpkCore.c
-  src/opt/lpk/lpkAbcDec.c
-  src/opt/lpk/lpkAbcMux.c
-  src/opt/lpk/lpkAbcDsd.c
-  src/opt/lpk/lpkAbcUtil.c
-  src/opt/lpk/lpkCut.c
-  src/opt/lpk/lpkMan.c
-  src/opt/lpk/lpkMap.c
-  src/opt/lpk/lpkMulti.c
-  src/opt/lpk/lpkMux.c
-  src/opt/lpk/lpkSets.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkAbcDec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkAbcMux.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkAbcDsd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkAbcUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkCut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkMap.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkMulti.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkMux.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/lpkSets.c
 )

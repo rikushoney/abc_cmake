@@ -1,6 +1,7 @@
 SRC +=  src/bool/kit/kitAig.c \
     src/bool/kit/kitBdd.c \
-    src/bool/kit/kitCloud.c src/bool/kit/cloud.c \
+    src/bool/kit/kitCloud.c \
+    src/bool/kit/cloud.c \
     src/bool/kit/kitDsd.c \
     src/bool/kit/kitFactor.c \
     src/bool/kit/kitGraph.c \

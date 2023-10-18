@@ -1,8 +1,8 @@
 target_sources(abc
   PRIVATE
-  
-  src/opt/fret/fretMain.c
-  src/opt/fret/fretFlow.c
-  src/opt/fret/fretInit.c
-  src/opt/fret/fretTime.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/
+  ${CMAKE_CURRENT_SOURCE_DIR}/fretMain.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fretFlow.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fretInit.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/fretTime.c
 )

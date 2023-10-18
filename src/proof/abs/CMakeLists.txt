@@ -1,19 +1,19 @@
 target_sources(abc
   PRIVATE
-  src/proof/abs/absDup.c
-  src/proof/abs/absGla.c
-  src/proof/abs/absGlaOld.c
-  src/proof/abs/absIter.c
-  src/proof/abs/absOldCex.c
-  src/proof/abs/absOldRef.c
-  src/proof/abs/absOldSat.c
-  src/proof/abs/absOldSim.c
-  src/proof/abs/absOut.c
-  src/proof/abs/absPth.c
-  src/proof/abs/absRef.c
-  src/proof/abs/absRefSelect.c
-  src/proof/abs/absRpm.c
-  src/proof/abs/absRpmOld.c
-  src/proof/abs/absVta.c
-  src/proof/abs/absUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absDup.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absGla.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absGlaOld.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absIter.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absOldCex.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absOldRef.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absOldSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absOldSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absOut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absPth.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absRef.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absRefSelect.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absRpm.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absRpmOld.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absVta.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/absUtil.c
 )

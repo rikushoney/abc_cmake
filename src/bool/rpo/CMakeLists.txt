@@ -1,4 +1,4 @@
 target_sources(abc
   PRIVATE
-  src/bool/rpo/rpo.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/rpo.c
 )

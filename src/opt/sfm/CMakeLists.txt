@@ -1,13 +1,13 @@
 target_sources(abc
   PRIVATE
-  src/opt/sfm/sfmArea.c
-  src/opt/sfm/sfmCnf.c
-  src/opt/sfm/sfmCore.c
-  src/opt/sfm/sfmDec.c
-  src/opt/sfm/sfmLib.c
-  src/opt/sfm/sfmNtk.c
-  src/opt/sfm/sfmSat.c
-  src/opt/sfm/sfmTim.c
-  src/opt/sfm/sfmMit.c
-  src/opt/sfm/sfmWin.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmArea.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmCnf.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmDec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmLib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmNtk.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmTim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmMit.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sfmWin.c
 )

@@ -1,12 +1,12 @@
 target_sources(abc
   PRIVATE
-  src/opt/dar/darBalance.c
-  src/opt/dar/darCore.c
-  src/opt/dar/darCut.c
-  src/opt/dar/darData.c
-  src/opt/dar/darLib.c
-  src/opt/dar/darMan.c
-  src/opt/dar/darPrec.c
-  src/opt/dar/darRefact.c
-  src/opt/dar/darScript.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darBalance.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darCut.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darData.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darLib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darPrec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darRefact.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/darScript.c
 )

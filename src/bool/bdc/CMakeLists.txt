@@ -1,7 +1,7 @@
 target_sources(abc
   PRIVATE
-  src/bool/bdc/bdcCore.c
-  src/bool/bdc/bdcDec.c
-  src/bool/bdc/bdcSpfd.c
-  src/bool/bdc/bdcTable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bdcCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bdcDec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bdcSpfd.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/bdcTable.c
 )

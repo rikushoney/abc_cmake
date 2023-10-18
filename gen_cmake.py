@@ -18,7 +18,7 @@ abc_modules = [
     "src/base/bac",
     "src/base/cba",
     "src/base/pla",
-    # "src/base/test",
+    "src/base/test",
     "src/map/mapper",
     "src/map/mio",
     "src/map/super",
@@ -104,14 +104,14 @@ def read_file(filename, mode="r"):
 
 
 def extract_srcs(contents):
-    contents = contents.strip()
-    if not contents.startswith("SRC"):
+    s = contents.strip()
+    if not s.startswith("SRC"):
         return list()
-    contents = contents.removeprefix("SRC").strip()
-    if not contents.startswith("+="):
+    s = s.removeprefix("SRC").strip()
+    if not s.startswith("+="):
         return list()
-    contents = contents.removeprefix("+=").strip()
-    return [src.strip().removesuffix("\\").strip() for src in contents.splitlines()]
+    s = s.removeprefix("+=").strip()
+    return [src.strip().removesuffix("\\").strip() for src in s.splitlines()]
 
 
 def write_module_cmakelists(dir, srcs):
@@ -120,7 +120,8 @@ def write_module_cmakelists(dir, srcs):
     with open(f"{dir}/CMakeLists.txt", "w") as f:
         print("target_sources(abc\n  PRIVATE", file=f)
         for src in srcs:
-            print(f"  {src}", file=f)
+            src = src.split("/")[-1]
+            print(f"  ${{CMAKE_CURRENT_SOURCE_DIR}}/{src}", file=f)
         print(")", file=f)
 
 

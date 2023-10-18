@@ -1,9 +1,9 @@
 target_sources(abc
   PRIVATE
-  src/base/exor/exor.c
-  src/base/exor/exorBits.c
-  src/base/exor/exorCubes.c
-  src/base/exor/exorLink.c
-  src/base/exor/exorList.c
-  src/base/exor/exorUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/exor.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/exorBits.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/exorCubes.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/exorLink.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/exorList.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/exorUtil.c
 )

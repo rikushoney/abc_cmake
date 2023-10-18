@@ -1,12 +1,12 @@
 target_sources(abc
   PRIVATE
-  src/opt/sim/simMan.c
-  src/opt/sim/simSeq.c
-  src/opt/sim/simSupp.c
-  src/opt/sim/simSwitch.c
-  src/opt/sim/simSym.c
-  src/opt/sim/simSymSat.c
-  src/opt/sim/simSymSim.c
-  src/opt/sim/simSymStr.c
-  src/opt/sim/simUtils.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simSeq.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simSupp.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simSwitch.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simSym.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simSymSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simSymSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simSymStr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/simUtils.c
 )

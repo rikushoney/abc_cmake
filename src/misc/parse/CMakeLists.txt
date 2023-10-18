@@ -1,5 +1,5 @@
 target_sources(abc
   PRIVATE
-  src/misc/parse/parseEqn.c
-  src/misc/parse/parseStack.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/parseEqn.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/parseStack.c
 )

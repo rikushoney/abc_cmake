@@ -1,17 +1,17 @@
 target_sources(abc
   PRIVATE
-  src/opt/nwk/nwkAig.c
-  src/opt/nwk/nwkCheck.c
-  src/opt/nwk/nwkBidec.c
-  src/opt/nwk/nwkDfs.c
-  src/opt/nwk/nwkFanio.c
-  src/opt/nwk/nwkFlow.c
-  src/opt/nwk/nwkMan.c
-  src/opt/nwk/nwkMap.c
-  src/opt/nwk/nwkMerge.c
-  src/opt/nwk/nwkObj.c
-  src/opt/nwk/nwkSpeedup.c
-  src/opt/nwk/nwkStrash.c
-  src/opt/nwk/nwkTiming.c
-  src/opt/nwk/nwkUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkAig.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkCheck.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkBidec.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkDfs.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkFanio.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkFlow.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkMap.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkMerge.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkObj.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkSpeedup.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkStrash.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkTiming.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/nwkUtil.c
 )

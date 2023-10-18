@@ -1,7 +1,7 @@
 target_sources(abc
   PRIVATE
-  src/opt/fxch/Fxch.c
-  src/opt/fxch/FxchDiv.c
-  src/opt/fxch/FxchMan.c
-  src/opt/fxch/FxchSCHashTable.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/Fxch.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/FxchDiv.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/FxchMan.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/FxchSCHashTable.c
 )

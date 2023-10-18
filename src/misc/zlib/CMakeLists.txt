@@ -1,18 +1,18 @@
 target_sources(abc
   PRIVATE
-  src/misc/zlib/adler32.c
-  src/misc/zlib/compress_.c
-  src/misc/zlib/crc32.c
-  src/misc/zlib/deflate.c
-  src/misc/zlib/gzclose.c
-  src/misc/zlib/gzlib.c
-  src/misc/zlib/gzread.c
-  src/misc/zlib/gzwrite.c
-  src/misc/zlib/infback.c
-  src/misc/zlib/inffast.c
-  src/misc/zlib/inflate.c
-  src/misc/zlib/inftrees.c
-  src/misc/zlib/trees.c
-  src/misc/zlib/uncompr.c
-  src/misc/zlib/zutil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/adler32.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/compress_.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/crc32.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/deflate.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/gzclose.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/gzlib.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/gzread.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/gzwrite.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/infback.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/inffast.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/inflate.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/inftrees.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/trees.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/uncompr.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/zutil.c
 )

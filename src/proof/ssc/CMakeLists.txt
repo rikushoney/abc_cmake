@@ -1,8 +1,8 @@
 target_sources(abc
   PRIVATE
-  src/proof/ssc/sscClass.c
-  src/proof/ssc/sscCore.c
-  src/proof/ssc/sscSat.c
-  src/proof/ssc/sscSim.c
-  src/proof/ssc/sscUtil.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sscClass.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sscCore.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sscSat.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sscSim.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/sscUtil.c
 )
