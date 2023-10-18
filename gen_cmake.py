@@ -120,6 +120,8 @@ def write_module_cmakelists(dir, srcs):
     with open(f"{dir}/CMakeLists.txt", "w") as f:
         print("target_sources(abc\n  PRIVATE", file=f)
         for src in srcs:
+            if src == "src/base/main/main.c":
+                continue
             src = src.split("/")[-1]
             print(f"  ${{CMAKE_CURRENT_SOURCE_DIR}}/{src}", file=f)
         print(")", file=f)

@@ -1,6 +1,5 @@
 target_sources(abc
   PRIVATE
-  ${CMAKE_CURRENT_SOURCE_DIR}/main.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mainFrame.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mainInit.c
   ${CMAKE_CURRENT_SOURCE_DIR}/mainLib.c
