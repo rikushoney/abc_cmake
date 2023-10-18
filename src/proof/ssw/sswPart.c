@@ -25,10 +25,8 @@
 
 #ifdef ABC_USE_PTHREADS
 
-#ifdef _WIN32
-#include "../lib/pthread.h"
-#else
 #include <pthread.h>
+#ifndef _WIN32
 #include <unistd.h>
 #endif
 
@@ -135,7 +133,7 @@ void Ssw_SignalCorrespondenceArray( Vec_Ptr_t * vGias, Ssw_Pars_t * pPars )
         printf( "Running concurrent &scorr with %d processes.\n", nProcs );
     fflush( stdout );
     if ( pPars->nProcs < 2 )
-        return Ssw_SignalCorrespondenceArray1( vGias, pPars );
+        Ssw_SignalCorrespondenceArray1( vGias, pPars );
     // subtract manager thread
     nProcs--;
     assert( nProcs >= 1 && nProcs <= PAR_THR_MAX );

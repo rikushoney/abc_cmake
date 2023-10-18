@@ -30,7 +30,7 @@
 #define ABC__misc__extra__extra_bdd_h
 
 
-#ifdef _WIN32
+#if _MSC_VER
 #define inline __inline // compatible with MS VS 6.0
 #endif
 

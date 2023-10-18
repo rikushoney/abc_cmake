@@ -25,7 +25,9 @@
 
 #include "kit.h"
 
+#if _MSC_VER == 1200
 #define inline __inline // compatible with MS VS 6.0
+#endif
 
 //ABC_NAMESPACE_IMPL_START
 

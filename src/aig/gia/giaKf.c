@@ -29,11 +29,7 @@
 
 #ifdef ABC_USE_PTHREADS
 
-#ifdef _WIN32
-#include "../lib/pthread.h"
-#else
 #include <pthread.h>
-#endif
 
 #endif
 

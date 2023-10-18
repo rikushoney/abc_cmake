@@ -22,7 +22,7 @@
 #define ABC__aig__bar__bar_h
 
 
-#ifdef _WIN32
+#if _MSC_VER == 1200
 #define inline __inline // compatible with MS VS 6.0
 #endif
 

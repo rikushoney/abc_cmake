@@ -4,32 +4,61 @@ project(abc)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules/)
 
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 add_library(abc STATIC)
 target_include_directories(abc PUBLIC ${CMAKE_SOURCE_DIR}/src)
 target_compile_definitions(abc PUBLIC ABC_USE_STDINT_H=1)
 
-find_package(Readline)
-if (Readline_FOUND)
-  target_link_libraries(abc PUBLIC Readline::Readline)
+if (MSVC)
+  find_package(unofficial-readline-win32 CONFIG REQUIRED)
+  target_link_libraries(abc PUBLIC unofficial::readline-win32::readline)
   target_compile_definitions(abc PUBLIC ABC_USE_READLINE)
+else()
+  find_package(Readline)
+  if (Readline_FOUND)
+    target_link_libraries(abc PUBLIC Readline::Readline)
+    target_compile_definitions(abc PUBLIC ABC_USE_READLINE)
+  endif()
 endif()
 
-find_package(Threads)
-if (THREADS_FOUND)
-  target_link_libraries(abc PUBLIC Threads::Threads)
+if (MSVC)
+  find_package(PThreads4W REQUIRED)
+  target_link_libraries(abc PUBLIC PThreads4W::PThreads4W)
   target_compile_definitions(abc PUBLIC ABC_USE_PTHREADS)
+else()
+  find_package(Threads)
+  if (THREADS_FOUND)
+    target_link_libraries(abc PUBLIC Threads::Threads)
+    target_compile_definitions(abc PUBLIC ABC_USE_PTHREADS)
+  endif()
 endif()
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-  target_compile_options(abc PRIVATE -Wno-write-strings)
+  target_compile_options(abc PUBLIC -Wno-write-strings)
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   target_compile_options(abc
-    PRIVATE
+    PUBLIC
     -Wno-implicit-const-int-float-conversion
     -Wno-parentheses-equality
     -Wno-string-plus-char
     -Wno-writable-strings
   )
+elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+  target_compile_options(abc
+    PUBLIC
+    /wd4018
+    /wd4267
+    /wd4311
+    /wd4312
+    /wd4334
+    /wd4477
+    /wd4996
+    /wd4997
+  )
+  target_compile_definitions(abc PUBLIC WIN32_NO_DLL)
 endif()
 
 add_subdirectory(src)

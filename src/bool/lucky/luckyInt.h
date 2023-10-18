@@ -42,7 +42,9 @@ typedef unsigned __int64  word;
 #define bool int
 #define false 0
 #define true 1
+#if _MSC_VER == 1200
 #define inline __inline  // compatible with MS VS 6.0
+#endif
 #define ABC_ALLOC(type, num)    ((type *) malloc(sizeof(type) * (num)))
 // #define LUCKY_VERIFY
 

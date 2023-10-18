@@ -30,11 +30,7 @@
 
 #ifdef ABC_USE_PTHREADS
 
-#ifdef _WIN32
-#include "../lib/pthread.h"
-#else
 #include <pthread.h>
-#endif
 
 #endif
 
@@ -165,7 +161,7 @@ void Gia_StochProcess( Vec_Ptr_t * vGias, char * pScript, int nProcs, int TimeSe
         printf( "Running concurrent synthesis with %d processes.\n", nProcs );
     fflush( stdout );
     if ( nProcs < 2 )
-        return Gia_StochProcessArray( vGias, pScript, TimeSecs, fVerbose );
+        Gia_StochProcessArray( vGias, pScript, TimeSecs, fVerbose );
     // subtract manager thread
     nProcs--;
     assert( nProcs >= 1 && nProcs <= PAR_THR_MAX );
