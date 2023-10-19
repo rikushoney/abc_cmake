@@ -32,9 +32,15 @@ jobs:
         ./vcpkg/vcpkg install
       if: ${{ contains(matrix.os, 'windows') }}
 
-    - name: Configure CMake
+    - name: Configure CMake (posix)
       run: |
         cmake -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -B build
+      if: ${{ !contains(matrix.os, 'windows') }}
+
+    - name: Configure CMake (win)
+      run: |
+        cmake -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -B build
+      if: ${{ contains(matrix.os, 'windows') }}
 
     - name: Build CMake
       run: |
