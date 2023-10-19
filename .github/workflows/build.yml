@@ -28,7 +28,7 @@ jobs:
     - name: Install vcpkg dependencies
       run: |
         ./vcpkg/bootstrap-vcpkg.bat
-        ./vcpkg/vcpkg install readline pthreads
+        ./vcpkg/vcpkg install
       if: ${{ contains(matrix.os, 'windows') }}
 
     - name: Configure CMake
