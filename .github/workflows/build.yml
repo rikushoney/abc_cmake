@@ -1,0 +1,45 @@
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+        build_type: [Debug, Release]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Git Checkout
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+
+    - name: Install brew dependencies
+      run: |
+        HOMEBREW_NO_AUTO_UPDATE=1 brew install readline ninja
+      if: ${{ contains(matrix.os, 'macos') }}
+
+    - name: Install APT dependencies
+      run: |
+        sudo apt install -y libreadline-dev ninja-build
+      if: ${{ contains(matrix.os, 'ubuntu') }}
+
+    - name: Install vcpkg dependencies
+      run: |
+        ./vcpkg/bootstrap-vcpkg.bat
+        ./vcpkg/vcpkg install readline pthreads
+      if: ${{ contains(matrix.os, 'windows') }}
+
+    - name: Configure CMake
+      run: |
+        cmake -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.build_type }} -B build
+
+    - name: Build CMake
+      run: |
+        cmake --build build
+
+    - name: Test Executable
+      run: |
+        ./build/bin/abc -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
+
