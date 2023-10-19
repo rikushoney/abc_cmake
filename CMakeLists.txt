@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 3.10)
 
+if (WIN32)
+  set(
+    CMAKE_TOOLCHAIN_FILE
+    "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake"
+    CACHE
+    STRING
+    "Vcpkg toolchain file"
+  )
+endif()
+
 project(abc)
 
 list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules/)
@@ -12,7 +22,7 @@ add_library(abc STATIC)
 target_include_directories(abc PUBLIC ${CMAKE_SOURCE_DIR}/src)
 target_compile_definitions(abc PUBLIC ABC_USE_STDINT_H=1)
 
-if (MSVC)
+if (WIN32)
   find_package(unofficial-readline-win32 CONFIG REQUIRED)
   target_link_libraries(abc PUBLIC unofficial::readline-win32::readline)
   target_compile_definitions(abc PUBLIC ABC_USE_READLINE)
@@ -24,7 +34,7 @@ else()
   endif()
 endif()
 
-if (MSVC)
+if (WIN32)
   find_package(PThreads4W REQUIRED)
   target_link_libraries(abc PUBLIC PThreads4W::PThreads4W)
   target_compile_definitions(abc PUBLIC ABC_USE_PTHREADS)
