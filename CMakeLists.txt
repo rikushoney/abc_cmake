@@ -58,6 +58,9 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     /wd4996
     /wd4997
   )
+endif()
+
+if (WIN32)
   target_compile_definitions(abc PUBLIC WIN32_NO_DLL)
 endif()
 
