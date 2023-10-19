@@ -46,7 +46,11 @@ jobs:
       run: |
         cmake --build build
 
-    - name: Test Executable
+    - name: Test Executable (posix)
       run: |
         ./build/bin/abc -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
+
+    - name: Test Executable (win)
+      run: |
+        ./build/bin/abc.exe -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
 
