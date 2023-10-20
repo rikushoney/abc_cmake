@@ -53,6 +53,6 @@ jobs:
 
     - name: Test Executable (win)
       run: |
-        ./build/bin/abc.exe -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
+        .\build\bin\${{ matrix.build_type }}\abc.exe -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
       if: ${{ contains(matrix.os, 'windows') }}
 
