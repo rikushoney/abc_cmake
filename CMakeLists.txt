@@ -79,5 +79,5 @@ add_subdirectory(src)
 
 add_executable(abc_exe)
 set_property(TARGET abc_exe PROPERTY OUTPUT_NAME abc)
-target_sources(abc_exe PRIVATE ${CMAKE_SOURCE_DIR}/src/base/main/main.c)
+target_sources(abc_exe PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/base/main/main.c)
 target_link_libraries(abc_exe PRIVATE abc)
