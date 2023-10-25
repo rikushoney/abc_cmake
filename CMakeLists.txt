@@ -19,7 +19,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_library(abc STATIC)
-target_include_directories(abc PUBLIC ${CMAKE_SOURCE_DIR}/src)
+target_include_directories(abc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_compile_definitions(abc PUBLIC ABC_USE_STDINT_H=1)
 
 if (WIN32)
@@ -70,9 +70,6 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
     /wd4996
     /wd4997
   )
-endif()
-
-if (WIN32)
 endif()
 
 add_subdirectory(src)
