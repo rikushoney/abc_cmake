@@ -25,7 +25,7 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 #include <stdio.h>
 #include <math.h>
 
-#include "misc/zlib/zlib.h"
+#include <zlib.h>
 
 ABC_NAMESPACE_CXX_HEADER_START
 

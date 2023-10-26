@@ -18,6 +18,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+option(ABC_NAMESPACE "Compile abc in namespace" OFF)
+
 add_library(abc STATIC)
 target_include_directories(abc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_compile_definitions(abc PUBLIC ABC_USE_STDINT_H=1)
@@ -49,7 +51,11 @@ find_package(BZip2 REQUIRED)
 target_link_libraries(abc PUBLIC BZip2::BZip2)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-  target_compile_options(abc PUBLIC -Wno-write-strings)
+  target_compile_options(abc
+    PUBLIC
+    -Wno-write-strings
+    -Wno-narrowing
+  )
 elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   target_compile_options(abc
     PUBLIC
@@ -74,7 +80,21 @@ endif()
 
 add_subdirectory(src)
 
+if(ABC_NAMESPACE)
+  get_target_property(abc_SOURCES abc SOURCES)
+  foreach(src_file ${abc_SOURCES})
+    get_filename_component(src_ext ${src_file} EXT)
+    if(${src_ext} STREQUAL ".c")
+      set_source_files_properties(${src_file} PROPERTIES LANGUAGE CXX)
+    endif()
+  endforeach()
+  target_compile_definitions(abc PUBLIC ABC_NAMESPACE=${ABC_NAMESPACE})
+endif()
+
 add_executable(abc_exe)
 set_property(TARGET abc_exe PROPERTY OUTPUT_NAME abc)
 target_sources(abc_exe PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src/base/main/main.c)
+if(ABC_NAMESPACE)
+  set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/base/main/main.c PROPERTIES LANGUAGE CXX)
+endif()
 target_link_libraries(abc_exe PRIVATE abc)

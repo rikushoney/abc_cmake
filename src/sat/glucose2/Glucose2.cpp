@@ -28,6 +28,7 @@ OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWA
 **************************************************************************************************/
 #include <math.h>
 
+#include "misc/util/abc_global.h"
 #include "sat/glucose2/Sort.h"
 #include "sat/glucose2/Constants.h"
 #include "sat/glucose2/System.h"
