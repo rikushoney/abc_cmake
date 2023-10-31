@@ -94,7 +94,7 @@ int CmdCommandLoad( Abc_Frame_t * pAbc, int argc, char ** argv )
   SeeAlso     []
 
 ***********************************************************************/
-#if defined(WIN32) && !defined(__cplusplus)
+#if defined(WIN32)
 
 #include <direct.h>
 #include <io.h>
