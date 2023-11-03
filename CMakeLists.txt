@@ -1,18 +1,9 @@
-cmake_minimum_required(VERSION 3.10)
-
-if (WIN32)
-  set(
-    CMAKE_TOOLCHAIN_FILE
-    "${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/scripts/buildsystems/vcpkg.cmake"
-    CACHE
-    STRING
-    "Vcpkg toolchain file"
-  )
-endif()
+cmake_minimum_required(VERSION 3.19)
 
 project(abc)
 
-list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules/)
+list(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/modules)
+include(CTest)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -24,7 +15,7 @@ add_library(abc STATIC)
 target_include_directories(abc PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_compile_definitions(abc PUBLIC ABC_USE_STDINT_H=1)
 
-if (WIN32)
+if(WIN32)
   find_package(unofficial-readline-win32 CONFIG REQUIRED)
   target_link_libraries(abc PUBLIC unofficial::readline-win32::readline)
   target_compile_definitions(abc PUBLIC ABC_USE_READLINE)
@@ -50,13 +41,13 @@ target_link_libraries(abc PUBLIC ZLIB::ZLIB)
 find_package(BZip2 REQUIRED)
 target_link_libraries(abc PUBLIC BZip2::BZip2)
 
-if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
   target_compile_options(abc
     PUBLIC
     -Wno-write-strings
     -Wno-narrowing
   )
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
   target_compile_options(abc
     PUBLIC
     -Wno-implicit-const-int-float-conversion
@@ -64,7 +55,7 @@ elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     -Wno-string-plus-char
     -Wno-writable-strings
   )
-elseif (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+elseif(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
   target_compile_options(abc
     PUBLIC
     /wd4018
@@ -98,3 +89,11 @@ if(ABC_NAMESPACE)
   set_source_files_properties(${CMAKE_CURRENT_SOURCE_DIR}/src/base/main/main.c PROPERTIES LANGUAGE CXX)
 endif()
 target_link_libraries(abc_exe PRIVATE abc)
+
+if(BUILD_TESTING)
+  add_test(
+    NAME abc_smoke_test
+    COMMAND $<TARGET_FILE:abc_exe> -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+  )
+endif()

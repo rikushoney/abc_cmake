@@ -142,8 +142,6 @@ def main():
     for mod in abc_srcs:
         mod_name = mod["module"].split("/")[-1]
         print(f"found module {mod_name}")
-        if "phys" in mod_name:
-            print(mod)
         if len(mod["srcs"]) == 0:
             print(f"module {mod_name} has no sources")
             continue
