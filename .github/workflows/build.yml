@@ -39,7 +39,11 @@ jobs:
         ./vcpkg/vcpkg install
       if: ${{ contains(matrix.os, 'windows') }}
 
-    - name: Configure CMake (posix)
+    - name: Activate MSVC developer environment
+      uses: ilammy/msvc-dev-cmd@v1i
+      if: ${{ contains(matrix.os, 'windows') }}
+
+    - name: Configure CMake
       run: |
         cmake --preset ${{ matrix.preset }}
 
