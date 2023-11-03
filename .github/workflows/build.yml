@@ -7,13 +7,6 @@ jobs:
       matrix:
         os: [macos-latest, ubuntu-latest, windows-latest]
         build_type: [Debug, Release]
-        preset: [ninja-multi]
-        include:
-          - os: windows-latest
-            preset: ninja-multi-vcpkg
-        exclude:
-          - os: windows-latest
-            preset: ninja-multi
 
     runs-on: ${{ matrix.os }}
 
@@ -40,17 +33,27 @@ jobs:
       if: ${{ contains(matrix.os, 'windows') }}
 
     - name: Activate MSVC developer environment
-      uses: ilammy/msvc-dev-cmd@v1i
+      uses: ilammy/msvc-dev-cmd@v1
+      if: ${{ contains(matrix.os, 'windows') }}
+
+    - name: Set ninja-multi preset
+      run: |
+        echo "ABC_CMAKE_PRESET=ninja-multi" >> $GITHUB_ENV
+      if: ${{ !contains(matrix.os, 'windows') }}
+
+    - name: Set ninja-multi-vcpkg preset
+      run: |
+        echo "ABC_CMAKE_PRESET=ninja-multi-vcpkg" >> $GITHUB_ENV
       if: ${{ contains(matrix.os, 'windows') }}
 
     - name: Configure CMake
       run: |
-        cmake --preset ${{ matrix.preset }}
+        cmake --preset $ABC_CMAKE_PRESET
 
     - name: Build CMake
       run: |
-        cmake --build --preset ${{ matrix.preset }} --config ${{ matrix.build_type }}
+        cmake --build --preset $ABC_CMAKE_PRESET --config ${{ matrix.build_type }}
 
     - name: Test Executable
       run: |
-        ctest --preset ${{ matrix.preset }} -C ${{ matrix.build_type }}
+        ctest --preset $ABC_CMAKE_PRESET -C ${{ matrix.build_type }}
