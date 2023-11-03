@@ -11,7 +11,7 @@ jobs:
         include:
           - os: windows-latest
             preset: ninja-multi-vcpkg
-        exlude:
+        exclude:
           - os: windows-latest
             preset: ninja-multi
 
@@ -50,4 +50,3 @@ jobs:
     - name: Test Executable
       run: |
         ctest --preset ${{ matrix.preset }} -C ${{ matrix.build_type }}
-
