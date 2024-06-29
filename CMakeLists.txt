@@ -1,114 +1,189 @@
-cmake_minimum_required(VERSION 3.5.0)
+cmake_minimum_required(VERSION 3.20.0)
 
-include(CMakeParseArguments)
-include(CheckCCompilerFlag)
-include(CheckCXXCompilerFlag)
+list(INSERT
+  CMAKE_MODULE_PATH 0
+  "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules")
 
-# Default c++ standard used unless otherwise specified in target_compile_features.
-set(CMAKE_CXX_STANDARD 17 CACHE STRING "the C++ standard to use for this project")
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+string(TIMESTAMP ABC_CALVER "%Y%m%d" UTC)
 
-function(addprefix var prefix)
-    foreach( s ${ARGN} )
-        list(APPEND tmp "-I${s}")
-    endforeach()
-    set(${var} ${tmp} PARENT_SCOPE)
-endfunction()
+project(abc
+  VERSION 0.0.${ABC_CALVER}
+  LANGUAGES C CXX)
 
-# filter out flags that are not appropriate for the compiler being used
-function(target_compile_options_filtered target visibility)
-    foreach( flag ${ARGN} )
-        if( flag MATCHES "^-D.*" )
-            target_compile_options( ${target} ${visibility} ${flag} )
-        else()
-            check_c_compiler_flag( ${flag} C_COMPILER_SUPPORTS__${flag} )
-            if( C_COMPILER_SUPPORTS__${flag} )
-                target_compile_options( ${target} ${visibility} $<$<COMPILE_LANGUAGE:C>:${flag}> )
-            endif()
-
-            check_cxx_compiler_flag( ${flag} CXX_COMPILER_SUPPORTS__${flag} )
-            if( CXX_COMPILER_SUPPORTS__${flag} )
-                target_compile_options( ${target} ${visibility} $<$<COMPILE_LANGUAGE:CXX>:${flag}>  )
-            endif()
-        endif()
-    endforeach()
-endfunction()
-
-project(abc)
-
-if(READLINE_FOUND MATCHES TRUE)
-    addprefix(ABC_READLINE_INCLUDES_FLAGS "-I" ${READLINE_INCLUDE})
-    string(REPLACE ";" " " ABC_READLINE_INCLUDES_FLAGS "${ABC_READLINE_INCLUDES_FLAGS}")
-    list(APPEND ABC_READLINE_FLAGS "ABC_READLINE_INCLUDES=${ABC_READLINE_INCLUDES_FLAGS}")
-
-    string(REPLACE ";" " " ABC_READLINE_LIBRARIES_FLAGS "${READLINE_LIBRARIES}")
-    list(APPEND ABC_READLINE_FLAGS "ABC_READLINE_LIBRARIES=${ABC_READLINE_LIBRARIES_FLAGS}")
-elseif(READLINE_FOUND MATCHES FALSE)
-    list(APPEND ABC_READLINE_FLAGS "ABC_USE_NO_READLINE=1")
+if(WIN32)
+  set(ABC_BUILD_DYLIB_DEFAULT 0)
+  set(ABC_LINK_DYLIB_DEFAULT 0)
+  set(ABC_USE_PIC_DEFAULT 0)
+  set(ABC_USE_PTHREADS_DEFAULT 0)
+else()
+  set(ABC_BUILD_DYLIB_DEFAULT 1)
+  set(ABC_LINK_DYLIB_DEFAULT 1)
+  set(ABC_USE_PIC_DEFAULT 1)
+  set(ABC_USE_PTHREADS_DEFAULT 1)
 endif()
 
-if(ABC_USE_NAMESPACE)
-    set(ABC_USE_NAMESPACE_FLAGS "ABC_USE_NAMESPACE=${ABC_USE_NAMESPACE}")
+option(ABC_BUILD_DYLIB
+  "Build ABC as a shared library"
+  ${ABC_BUILD_DYLIB_DEFAULT})
+
+option(ABC_LINK_DYLIB
+  "Link the ABC executable to the shared library"
+  ${ABC_BUILD_DYLIB_DEFAULT})
+
+option(ABC_USE_PIC
+  "Compile ABC using position independent code"
+  ${ABC_USE_PIC_DEFAULT})
+
+option(ABC_USE_PTHREADS
+  "Compile ABC with pthreads support"
+  ${ABC_USE_PTHREADS_DEFAULT})
+
+set(ABC_C_STANDARD 11)
+
+set_property(GLOBAL
+  PROPERTY ABC_REQUIRED_C_STANDARD
+  ${ABC_C_STANDARD})
+
+set(ABC_CXX_STANDARD 17)
+
+set_property(GLOBAL
+  PROPERTY ABC_REQUIRED_CXX_STANDARD
+  ${ABC_CXX_STANDARD})
+
+set_property(GLOBAL
+  APPEND
+  PROPERTY ABC_INCLUDE_DIRS
+  "${CMAKE_CURRENT_SOURCE_DIR}/src")
+
+set_property(GLOBAL
+  APPEND
+  PROPERTY ABC_COMPILE_DEFS
+  "ABC_USE_CUDD=1"
+  "ABC_USE_STDINT_H=1")
+
+set_property(GLOBAL
+  APPEND
+  PROPERTY ABC_COMPILE_FLAGS
+  $<$<BOOL:${ABC_USE_PIC}>:-fPIC>)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+
+if(${ABC_USE_PTHREADS})
+  find_package(Threads)
 endif()
 
-if( APPLE )
-    set(make_env ${CMAKE_COMMAND} -E env SDKROOT=${CMAKE_OSX_SYSROOT})
+if(${Threads_FOUND} AND ${CMAKE_USE_PTHREADS_INIT})
+  set_property(GLOBAL
+    APPEND
+    PROPERTY ABC_COMPILE_DEFS
+    "ABC_USE_PTHREADS=1")
 endif()
 
-# run make to extract compiler options, linker options and list of source files
+find_package(Python3
+  REQUIRED
+  COMPONENTS Interpreter)
+
 execute_process(
-  COMMAND
-    ${make_env}
-    make
-        ${ABC_READLINE_FLAGS}
-        ${ABC_USE_NAMESPACE_FLAGS}
-        ARCHFLAGS_EXE=${CMAKE_CURRENT_BINARY_DIR}/abc_arch_flags_program.exe
-        ABC_MAKE_NO_DEPS=1
-        CC=${CMAKE_C_COMPILER}
-        CXX=${CMAKE_CXX_COMPILER}
-        LD=${CMAKE_CXX_COMPILER}
-        cmake_info
-  WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-  OUTPUT_VARIABLE MAKE_OUTPUT
-)
+  COMMAND ${Python3_EXECUTABLE} parse-module-makefiles.py
+  WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+  OUTPUT_VARIABLE parse_module_makefiles_stdout
+  ERROR_VARIABLE parse_module_makefiles_stderr
+  RESULT_VARIABLE parse_module_makefiles_result)
 
-# extract options from make output
-function(extract_var SEPARATOR DEST_VARIABLE MAKE_OUTPUT)
-  string(REGEX MATCH "${SEPARATOR} .* ${SEPARATOR}" TMP "${MAKE_OUTPUT}")
-  string(REGEX REPLACE "${SEPARATOR} (.*) ${SEPARATOR}" "\\1" TMP "${TMP}")
-
-  separate_arguments(TMP)
-
-  set(${DEST_VARIABLE} ${TMP} PARENT_SCOPE)
-endfunction()
-
-extract_var(SEPARATOR_SRC ABC_SRC ${MAKE_OUTPUT})
-extract_var(SEPARATOR_LIBS ABC_LIBS ${MAKE_OUTPUT})
-extract_var(SEPARATOR_CFLAGS ABC_CFLAGS ${MAKE_OUTPUT})
-extract_var(SEPARATOR_CXXFLAGS ABC_CXXFLAGS ${MAKE_OUTPUT})
-
-if(ABC_USE_NAMESPACE)
-    set_source_files_properties(${ABC_SRC} PROPERTIES LANGUAGE CXX)
+if(NOT ${parse_module_makefiles_result} EQUAL 0)
+  message("Failed to parse module makefiles")
+  message("stdout: \"${parse_module_makefiles_stdout}\"")
+  message("stderr: \"${parse_module_makefiles_stderr}\"")
+  if("${parse_module_makefiles_result}" MATCHES "^[0-9]+\$")
+    set(error_message "exited with code ${parse_module_makefiles_result}")
+  else()
+    set(error_message "${parse_module_makefiles_result}")
+  endif()
+  message(FATAL_ERROR "parse-module-makefiles.py: ${error_message}")
 endif()
 
-function(abc_properties target visibility)
-    target_include_directories(${target} ${visibility} ${CMAKE_CURRENT_SOURCE_DIR}/src )
-    target_compile_options_filtered(${target} ${visibility} ${ABC_CFLAGS} ${ABC_CXXFLAGS} -Wno-unused-but-set-variable )
-    target_link_libraries(${target} ${visibility} ${ABC_LIBS})
-endfunction()
+file(STRINGS
+  "${CMAKE_CURRENT_SOURCE_DIR}/sources.txt"
+  sources_txt)
 
-set(ABC_MAIN_SRC src/base/main/main.c)
-list(REMOVE_ITEM ABC_SRC ${ABC_MAIN_SRC})
+include(AddABC)
 
-add_library(libabc EXCLUDE_FROM_ALL ${ABC_SRC})
-abc_properties(libabc PUBLIC)
-set_property(TARGET libabc PROPERTY OUTPUT_NAME abc)
+foreach(lib_entry ${sources_txt})
+  string(FIND "${lib_entry}" ":" needle)
+  string(SUBSTRING "${lib_entry}" 0 ${needle} libname)
+  math(EXPR jump "${needle}+1")
+  string(SUBSTRING "${lib_entry}" ${jump} -1 sources)
 
-add_executable(abc ${ABC_MAIN_SRC})
-target_link_libraries(abc PRIVATE libabc)
-abc_properties(abc PRIVATE)
+  abc_add_library(${libname} SOURCES ${sources})
+endforeach()
 
-add_library(libabc-pic EXCLUDE_FROM_ALL ${ABC_SRC})
-abc_properties(libabc-pic PUBLIC)
-set_property(TARGET libabc-pic PROPERTY POSITION_INDEPENDENT_CODE ON)
-set_property(TARGET libabc-pic PROPERTY OUTPUT_NAME abc-pic)
+get_property(ABC_INCLUDE_DIRS
+  GLOBAL
+  PROPERTY ABC_INCLUDE_DIRS)
+
+get_property(ABC_COMPILE_DEFS
+  GLOBAL
+  PROPERTY ABC_COMPILE_DEFS)
+
+get_property(ABC_COMPILE_FLAGS
+  GLOBAL
+  PROPERTY ABC_COMPILE_FLAGS)
+
+get_property(ABC_STATIC_LIBS
+  GLOBAL
+  PROPERTY ABC_STATIC_LIBS)
+
+if(NOT MSVC)
+  set(ABC_LINK_STATIC_LIBS
+    -Wl,--whole-archive
+    ${ABC_STATIC_LIBS}
+    -Wl,--no-whole-archive)
+else()
+  set(ABC_LINK_STATIC_LIBS ${ABC_STATIC_LIBS})
+endif()
+
+if(ABC_BUILD_DYLIB)
+  add_library(abc
+    SHARED
+    "${CMAKE_CURRENT_SOURCE_DIR}/src/libabc.c")
+
+  target_link_libraries(abc
+    PRIVATE
+    ${ABC_LINK_STATIC_LIBS})
+
+  set_target_properties(abc
+    PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib"
+    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/lib")
+endif()
+
+add_executable(abc_exe)
+
+target_sources(abc_exe
+  PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/src/base/main/main.c")
+
+target_include_directories(abc_exe
+  PRIVATE ${ABC_INCLUDE_DIRS})
+
+target_compile_definitions(abc_exe
+  PRIVATE ${ABC_COMPILE_DEFS})
+
+target_compile_options(abc_exe
+  PRIVATE ${ABC_COMPILE_FLAGS})
+
+if(${ABC_BUILD_DYLIB} AND ${ABC_LINK_DYLIB})
+  target_link_libraries(abc_exe PRIVATE abc)
+else()
+  target_link_libraries(abc_exe
+    PRIVATE ${ABC_LINK_STATIC_LIBS})
+endif()
+
+set_target_properties(abc_exe
+  PROPERTIES
+  C_STANDARD_REQUIRED 1
+  C_STANDARD "${ABC_C_STANDARD}"
+  OUTPUT_NAME abc)
+
+set_target_properties(abc_exe
+  PROPERTIES
+  RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/bin")
