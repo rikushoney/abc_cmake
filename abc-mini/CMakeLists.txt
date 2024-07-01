@@ -1,0 +1,96 @@
+cmake_minimum_required(VERSION 3.20)
+
+string(TIMESTAMP ABC_MINI_VERSION "%Y%m%d" UTC)
+
+project(
+  AbcMini
+  VERSION 0.0.${ABC_MINI_VERSION}
+  LANGUAGES C CXX
+)
+
+set(
+  ABC_UPSTREAM_ROOT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.."
+  CACHE STRING "The root directory of upstream ABC"
+)
+
+set(
+  ABC_MINI_ENABLE_ASSERTIONS 1
+  CACHE BOOL "Enable use of assertions in AbcMini"
+)
+
+include(GNUInstallDirs)
+
+set(
+  CMAKE_ARCHIVE_OUTPUT_DIRECTORY
+  "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}"
+)
+
+set(
+  CMAKE_LIBRARY_OUTPUT_DIRECTORY
+  "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}"
+)
+
+set(
+  CMAKE_RUNTIME_OUTPUT_DIRECTORY
+  "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}"
+)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
+
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_C_STANDARD_REQUIRED 1)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED 1)
+
+if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
+  set(CMAKE_BUILD_TYPE "Debug")
+endif()
+
+file(READ
+  "${CMAKE_CURRENT_SOURCE_DIR}/abc_c_sources.txt"
+  ABC_C_SOURCES
+)
+
+list(TRANSFORM ABC_C_SOURCES PREPEND "${ABC_UPSTREAM_ROOT_DIR}/")
+
+file(
+  READ
+  "${CMAKE_CURRENT_SOURCE_DIR}/abc_cpp_sources.txt"
+  ABC_CXX_SOURCES
+)
+
+list(TRANSFORM ABC_CXX_SOURCES PREPEND "${ABC_UPSTREAM_ROOT_DIR}/")
+
+add_library(ABC_SHARED_INTERFACE INTERFACE)
+
+target_include_directories(
+  ABC_SHARED_INTERFACE
+  INTERFACE
+  "${ABC_UPSTREAM_ROOT_DIR}/src"
+)
+
+target_compile_definitions(
+  ABC_SHARED_INTERFACE
+  INTERFACE
+  ABC_USE_CUDD=1
+  ABC_USE_STDINT_H=1
+)
+
+add_library(ABCC OBJECT)
+target_sources(ABCC PRIVATE ${ABC_C_SOURCES})
+target_link_libraries(ABCC PUBLIC ABC_SHARED_INTERFACE)
+
+add_library(ABCCXX OBJECT)
+target_sources(ABCCXX PRIVATE ${ABC_CXX_SOURCES})
+target_link_libraries(ABCCXX PUBLIC ABC_SHARED_INTERFACE)
+
+add_subdirectory(lib)
+
+add_executable(smoke_test smoke_test.cpp)
+
+target_link_libraries(
+  smoke_test
+  PRIVATE
+  abc-mini-static
+)
