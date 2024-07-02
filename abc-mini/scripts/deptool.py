@@ -82,14 +82,20 @@ def tokenize_defined_in(
             break
         function_signatures += line + "\n"
     idx = cindex.Index.create()
-    unit = idx.parse("funcs.h", unsaved_files=[("funcs.h", function_signatures)])
+    unit = idx.parse(
+        "funcs.h",
+        unsaved_files=[("funcs.h", function_signatures)],
+        options=cindex.TranslationUnit.PARSE_INCOMPLETE,
+    )
     for node in unit.cursor.get_children():
-        breakpoint()
         if node.kind != CursorKind.FUNCTION_DECL:
             continue
+        print(f"{node.spelling}(", end="")
         for part in node.get_children():
             if part.kind != CursorKind.PARM_DECL:
                 continue
+            print(f"{part.type.spelling}", end="")
+        print(f") -> {node.result_type.spelling}")
     return i, DepToken(kind=DepTokenKind.DEFINED_IN, trivia=trivia)
 
 
