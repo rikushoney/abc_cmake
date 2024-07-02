@@ -1,0 +1,28 @@
+[project]
+name = "abc_mini_janitor"
+version = "0.0.0"
+requires-python = ">=3.10"
+description = "A collection of AbcMini maintanance scripts"
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = [
+  "F",   # pyflakes
+  "E",   # pycodestyle (errors)
+  "W",   # pycodestyle (warnings)
+  "N",   # pep8-naming
+  "I",   # isort
+  "UP",  # pyupgrade
+  "B",   # bugbear
+  "PIE", # flake8-pie
+  "SIM", # flake8-simplify
+  "COM", # flake8-commas
+  "C4",  # flake8-comprehensions
+  "PYI", # flake8-pyi
+]
+ignore = ["E501"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true

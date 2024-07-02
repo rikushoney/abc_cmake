@@ -78,7 +78,8 @@ def sources_should_update(
 
 
 def main() -> int:
-    abc_mini_root = Path(__file__).parent
+    script_root = Path(__file__).parent
+    abc_mini_root = script_root.parent
     abc_root = abc_mini_root.parent
     abc_srcroot = abc_root / "src"
     modules = {mod.name: mod.sources for mod in walk_abc_srctree(abc_srcroot)}
@@ -105,10 +106,13 @@ def main() -> int:
         cpp_source_entries = abc_cpp_sources_txt.read_text().split(";")
         update_cpp_sources = sources_should_update(cpp_sources, cpp_source_entries)
     if update_c_sources:
+        print("updating c_sources.txt")
         abc_c_sources_txt.write_text(";".join(c_sources))
     if update_cpp_sources:
+        print("updating cpp_sources.txt")
         abc_cpp_sources_txt.write_text(";".join(cpp_sources))
     if update_c_sources or update_cpp_sources:
+        print("bumping CMakeLists.txt timestamp")
         (abc_mini_root / "CMakeLists.txt").touch()
     return 0
 
