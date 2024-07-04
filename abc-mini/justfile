@@ -1,0 +1,49 @@
+abc_mini_dir := justfile_directory()
+include_dir := abc_mini_dir / "include"
+lib_dir := abc_mini_dir / "lib"
+deptool_dir := abc_mini_dir / "tools" / "deptool"
+deptool_manifest := deptool_dir / "Cargo.toml"
+
+@deptool:
+    cargo run                                \
+        --quiet                              \
+        --release                            \
+        --manifest-path {{deptool_manifest}} \
+        --                                   \
+        -I{{include_dir}}                    \
+        {{lib_dir}}
+
+build_dir := abc_mini_dir / "build"
+
+@configure-clang:
+    CC=clang CXX=clang++ LDFLAGS="-fuse-ld=lld" cmake \
+        -G "Ninja Multi-Config"                       \
+        -B {{build_dir}}                              \
+        -S {{abc_mini_dir}}
+
+@build-clang: configure-clang
+    cmake --build {{build_dir}} --config Debug
+
+@build-clang-release: configure-clang
+    cmake --build {{build_dir}} --config Release
+
+@configure-gcc:
+    CC=gcc CXX=g++ cmake        \
+        -G "Ninja Multi-Config" \
+        -B {{build_dir}}        \
+        -S {{abc_mini_dir}}
+
+@build-gcc: configure-gcc
+    cmake --build {{build_dir}} --config Debug
+
+@build-gcc-release: configure-gcc
+    cmake --build {{build_dir}} --config Release
+
+clean-build:
+    @cmake --build {{build_dir}} --target clean
+
+clean-deptool:
+    @cargo clean --manifest-path {{deptool_manifest}}
+
+[confirm("are you sure you want to delete ALL build artifacts?")]
+clean: clean-build clean-deptool

@@ -2,10 +2,9 @@
 
 
 import itertools
-from collections.abc import Sequence
+from collections.abc import Iterator, Sequence
 from pathlib import Path
-from typing import Iterator, NamedTuple
-
+from typing import NamedTuple
 
 BLACKLISTED_MODULES: set[str] = {
     "map/fpga",
@@ -70,10 +69,11 @@ def walk_abc_srctree(abc_srcroot: Path) -> Iterator[AbcModule]:
 
 
 def sources_should_update(
-    sources: Sequence[str], source_entries: Sequence[str]
+    sources: Sequence[str],
+    source_entries: Sequence[str],
 ) -> bool:
     return len(sources) != len(source_entries) or not all(
-        c1 == c2 for c1, c2 in zip(sources, source_entries)
+        c1 == c2 for c1, c2 in zip(sources, source_entries, strict=False)
     )
 
 
@@ -114,6 +114,7 @@ def main() -> int:
     if update_c_sources or update_cpp_sources:
         print("bumping CMakeLists.txt timestamp")
         (abc_mini_root / "CMakeLists.txt").touch()
+    print("done!")
     return 0
 
 

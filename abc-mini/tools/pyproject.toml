@@ -1,8 +1,8 @@
 [project]
-name = "abc_mini_janitor"
+name = "abc_mini_tools"
 version = "0.0.0"
 requires-python = ">=3.10"
-description = "A collection of AbcMini maintanance scripts"
+description = "A collection of AbcMini maintanance tools"
 
 [tool.ruff]
 line-length = 88

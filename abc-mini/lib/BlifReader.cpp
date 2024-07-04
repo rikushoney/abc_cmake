@@ -19,6 +19,7 @@ struct StringTable;
 struct Vec;
 
 extern "C" {
+// ABC_MINI: Defined-in: base/abc/abcLib.c
 AbcDesign Abc_DesCreate(char *name);
 void Hop_ManStop(HopManager *manager);
 
