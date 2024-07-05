@@ -622,6 +622,12 @@ fn parse_include(line: &str) -> Result<&str> {
     }
 }
 
+macro_rules! parse_loc_ctx {
+    ($filename:expr, $line:expr) => {
+        || format!("Failed to parse {}:{}", $filename.display(), $line)
+    };
+}
+
 enum IncludeFound {
     Yes,
     No,
@@ -656,7 +662,7 @@ fn deliver_hooks(hooks: &FuncHooks, rewrites: &Rewrites, payload_dir: &Path) -> 
             .expect("target should have a valid filename")
     );
     for (i, line) in target_lines.enumerate() {
-        let ctx = || format!("Failed to parse {}:{}", target.display(), i + 1);
+        let ctx = parse_loc_ctx!(target, i + 1);
         match line.trim() {
             HOOK_HEADER => {
                 if hooks_start.is_some() {
@@ -684,9 +690,9 @@ fn deliver_hooks(hooks: &FuncHooks, rewrites: &Rewrites, payload_dir: &Path) -> 
     }
     match (hooks_start, hooks_end, include_found) {
         (Some(_), Some(_), IncludeFound::Yes) => {}
-        (Some(_), Some(hooks_end), IncludeFound::No) => {
-            //
-            todo!()
+        (Some(hooks_start), Some(_), IncludeFound::No) => {
+            return Err(anyhow!("invalid hook include"))
+                .with_context(parse_loc_ctx!(target, hooks_start + 2));
         }
         (None, None, IncludeFound::No) => {
             let sep = if target_content.ends_with('\n') {
@@ -703,7 +709,7 @@ fn deliver_hooks(hooks: &FuncHooks, rewrites: &Rewrites, payload_dir: &Path) -> 
         }
         (Some(i), None, _) => {
             return Err(anyhow!("unmatched hooks header"))
-                .with_context(|| format!("Failed to parse {}:{}", target.display(), i + 1));
+                .with_context(parse_loc_ctx!(target, i + 1));
         }
         (None, Some(_), _) | (None, None, IncludeFound::Yes) => {
             unreachable!();

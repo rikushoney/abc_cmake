@@ -32,23 +32,29 @@ std::string format_message(std::string_view format, TArgs... args) {
 }
 } // namespace detail
 
-template <typename... TArgs>
-void emit_fault(
-    std::string_view format, TArgs &&...args,
-    std::source_location source_location = std::source_location::current()) {
-  auto &handlers = FaultHandlerStack::handlers();
-  for (auto handler : handlers) {
-    auto message = detail::format_message(format, std::forward<TArgs>(args)...);
+template <typename... TArgs> struct emit_fault {
+  emit_fault(
+      std::string_view format, TArgs &&...args,
+      std::source_location source_location = std::source_location::current()) {
+    auto &handlers = FaultHandlerStack::handlers();
+    for (auto handler : handlers) {
+      auto message =
+          detail::format_message(format, std::forward<TArgs>(args)...);
 #ifdef ABC_MINI_EMIT_DEBUG_INFO
-    const auto file = detail::quote_if_necessary(source_location.file_name());
-    const auto func =
-        detail::quote_if_necessary(source_location.function_name());
-    const auto line = source_location.line();
-    message = std::format("{}:{}:{}: {}", file, func, line, message);
+      const auto file = detail::quote_if_necessary(source_location.file_name());
+      const auto func =
+          detail::quote_if_necessary(source_location.function_name());
+      const auto line = source_location.line();
+      message = std::format("{}:{}:{}: {}", file, func, line, message);
 #endif
-    handler(message.c_str());
+      handler(message.c_str());
+    }
   }
-}
+};
+
+template <typename... TArgs>
+emit_fault(std::string_view format, TArgs &&...) -> emit_fault<TArgs...>;
+
 } // namespace abc_mini
 
 #endif
