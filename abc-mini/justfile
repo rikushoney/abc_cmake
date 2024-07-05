@@ -4,15 +4,6 @@ lib_dir := abc_mini_dir / "lib"
 deptool_dir := abc_mini_dir / "tools" / "deptool"
 deptool_manifest := deptool_dir / "Cargo.toml"
 
-@deptool:
-    cargo run                                \
-        --quiet                              \
-        --release                            \
-        --manifest-path {{deptool_manifest}} \
-        --                                   \
-        -I{{include_dir}}                    \
-        {{lib_dir}}
-
 build_dir := abc_mini_dir / "build"
 
 @configure-clang:
