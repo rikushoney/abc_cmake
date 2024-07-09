@@ -43,7 +43,7 @@ ABC_NAMESPACE_IMPL_START
   SeeAlso     []
 
 ***********************************************************************/
-If_LibLut_t * If_LibLutReadString( char * pStr )
+If_LibLut_t * If_LibLutReadString( const char * pStr )
 {
     If_LibLut_t * p;
     Vec_Ptr_t * vStrs;

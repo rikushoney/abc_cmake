@@ -287,7 +287,7 @@ static inline double   Abc_Word2Dbl( word Num )               { union { word x; 
 static inline int      Abc_Base2Log( unsigned n )             { int r; if ( n < 2 ) return (int)n; for ( r = 0, n--; n; n >>= 1, r++ ) {}; return r; }
 static inline int      Abc_Base10Log( unsigned n )            { int r; if ( n < 2 ) return (int)n; for ( r = 0, n--; n; n /= 10, r++ ) {}; return r; }
 static inline int      Abc_Base16Log( unsigned n )            { int r; if ( n < 2 ) return (int)n; for ( r = 0, n--; n; n /= 16, r++ ) {}; return r; }
-static inline char *   Abc_UtilStrsav( char * s )             { return s ? strcpy(ABC_ALLOC(char, strlen(s)+1), s) : NULL;  }
+static inline char *   Abc_UtilStrsav( const char * s )       { return s ? strcpy(ABC_ALLOC(char, strlen(s)+1), s) : NULL;  }
 static inline char *   Abc_UtilStrsavTwo( char * s, char * a ){ char * r; if (!a) return Abc_UtilStrsav(s); r = ABC_ALLOC(char, strlen(s)+strlen(a)+1); sprintf(r, "%s%s", s, a ); return r; }
 static inline char *   Abc_UtilStrsavNum( char * s, int n )   { char * r; if (!s) return NULL;              r = ABC_ALLOC(char, strlen(s)+12+1);        sprintf(r, "%s%d", s, n ); return r; }
 static inline int      Abc_BitByteNum( int nBits )            { return (nBits>>3) + ((nBits&7)  > 0);                       }
