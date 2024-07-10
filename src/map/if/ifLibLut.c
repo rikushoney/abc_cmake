@@ -167,18 +167,18 @@ If_LibLut_t * If_LibLutReadString( const char * pStr )
   SeeAlso     []
 
 ***********************************************************************/
-int Abc_FrameSetLutLibrary( Abc_Frame_t * pAbc, char * pLutLibString )
+int Abc_FrameSetLutLibrary( Abc_Frame_t * pAbc, const char * pLutLibString )
 {
     If_LibLut_t * pLib = If_LibLutReadString( pLutLibString );
     if ( pLib == NULL )
     {
         fprintf( stdout, "Reading LUT library from string has failed.\n" );
-        return 0;
+        return 1;
     }
     // replace the current library
     If_LibLutFree( (If_LibLut_t *)Abc_FrameReadLibLut() );
     Abc_FrameSetLibLut( pLib );
-    return 1;
+    return 0;
 }
 int Abc_FrameSetLutLibraryTest( Abc_Frame_t * pAbc )
 {
